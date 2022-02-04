@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import DayInfo from './components/DayInfo';
+import SideBar from "./components/SideBar";
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
+  const [selectedDay, setSelectedDay] = useState(0)
+  const [tripLength, setTripLength] = useLocalStorage('trip-length',0)
+
+  const all_days_info = []
+  for (let i = 0; i < tripLength; i++) {
+    all_days_info.push(<DayInfo i={i} />)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <SideBar selectedDay={selectedDay} setSelectedDay={setSelectedDay} tripLength={tripLength} setTripLength={setTripLength} />
+      {all_days_info.map((day,i) => {
+        if (i === selectedDay) return day
+        else return
+      })}
     </div>
   );
 }
