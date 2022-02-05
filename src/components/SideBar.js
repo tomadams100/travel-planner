@@ -14,6 +14,10 @@ export default function SideBar({selectedDay, setSelectedDay, tripLength, setTri
         setTripLength(e.target[0].value)
     }
 
+    function showSummary() {
+      setSelectedDay(-1)
+    }
+
     function clearLocalStorage() {
       for (let i = 1; i <= tripLength; i++) {
         localStorage.removeItem(`travel-planner-day-${i}`)
@@ -29,14 +33,18 @@ export default function SideBar({selectedDay, setSelectedDay, tripLength, setTri
   return(
       <div className='sidebar'>
       <h1 className='trip-title'>Your trip</h1>
+
       <form onSubmit={handleTripLengthSubmit}>
         <input type='number' value={numberInputed} onChange={handleChange}/>
         <button type='submit'>Set</button>
       </form>
-      <p>Trip length {tripLength}</p>
+
+      <p onClick={showSummary} className={`summary-link ${selectedDay === -1 ? `active` : ``}`}>Summary</p>
+
       <ul className='trip-days'>
         {all_days}
       </ul>
+
       <button onClick={clearLocalStorage}>Clear Trip</button>
       </div>
   );
