@@ -20,8 +20,12 @@
   background-color: lightgray;
   width: 100vw;
 }
-.day-info-form {
+.day-info-form-container {
+  display: flex;
+  width: 100%;
+}
+.day-info-form-content {
   display: flex;
   flex-direction: column;
-  width: 75%;
+  width: 15rem;
 }
