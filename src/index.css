@@ -2,33 +2,24 @@
   margin: 0;
   padding: 0;
 }
-.app {
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0,0, 0.5);
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.sidebar {
-  background-color: gray;
-  width: 15rem;
-  height: 100vh;
+.modal-content {
+  width: 30em;
+  background-color: #fff;
 }
-.trip-days-individual:hover {
-  background-color: darkgray;
+.modal-body {
+  padding: 10px;
 }
-.summary-link:hover {
-  background-color: darkgray;
-}
-.active {
-  background-color: red;
-}
-.day-info {
-  background-color: lightgray;
-  width: 100vw;
-}
-.day-info-form-container {
-  display: flex;
-  width: 100%;
-}
-.day-info-form-content {
-  display: flex;
-  flex-direction: column;
-  width: 15rem;
+.modal-footer {
+  padding: 10px;
 }
