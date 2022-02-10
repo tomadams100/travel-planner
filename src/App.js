@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Home from './components/Home';
 import Trip from './components/Trip';
-import { TripProvider } from './contexts/TripProvider';
+import { TripProvider } from './contexts/TripProvider'
 
 function App() {
   return (
